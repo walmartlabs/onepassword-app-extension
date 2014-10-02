@@ -72,7 +72,7 @@ Be forewarned, however, that there is not much code to get dirty with. If you we
 
 ### Add 1Password Files to Your Project
 
-Add the `OnePasswordExtension.h`, `OnePasswordExtension.m`, and `1Password.xcassets` to your project.
+Add the `OnePasswordExtension.h`, `OnePasswordExtension.m`, and `1Password.xcassets` to your project and import `OnePasswordExtension.h` in your view contoller that implements the action for the 1Password button.
 
 <img src="http://cl.ly/image/2g3B1r2O2z0L/Image%202014-07-29%20at%209.19.36%20AM.png" width="260" height="237"/>
 
@@ -110,7 +110,6 @@ Next we need to wire up the action for this button to this method in your UIView
 		strongMe.usernameTextField.text = loginDict[AppExtensionUsernameKey];
 		strongMe.passwordTextField.text = loginDict[AppExtensionPasswordKey];
 	}];
-}
 }
 ```
 
@@ -237,6 +236,12 @@ Simply add a button to your UI with its action assigned to this method in your w
 
 1Password will take care of all the details of collecting information about the currently displayed page, allow the user to select the desired login, and then fill the web form details within the page.
 
+
+## Projects supporting iOS 7.1 and earlier
+
+If your project's Deployment Target is earlier than iOS 8.0, please make sure that you link to the `MobileCoreServices` and `WebKit` frameworks.
+
+<a href="https://vimeo.com/102142106" target="_blank"><img src="https://www.evernote.com/shard/s340/sh/7547419d-6c49-4b45-bdb1-575c28678164/49cb7e0c1f508d1f67f5cf0361d58d3a/deep/0/WebView-Demo-for-iOS.xcodeproj.png" width="640"></a>
 
 ## Best Practices
 
