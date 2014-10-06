@@ -473,9 +473,9 @@ NSInteger const AppExtensionErrorCodeUnexpectedData = 6;
 			
 			__strong typeof(self) strongMe2 = miniMe;
 			NSString *fillScript = loginDictionary[AppExtensionWebViewPageFillScript];
-			[strongMe2 executeFillScript:fillScript inWebView:webView completion:^(BOOL success, NSError *error) {
+			[strongMe2 executeFillScript:fillScript inWebView:webView completion:^(BOOL success, NSError *executeError) {
 				if (completion) {
-					completion(success, error);
+					completion(success, executeError);
 				}
 			}];
 		}];
