@@ -1,8 +1,8 @@
 //
 //  ThankYouViewController.m
-//  1Password Extension Demo for iOS
+//  App Demo for iOS
 //
-//  Created by Rad on 2014-07-21.
+//  Created by Rad Azzouz on 2014-07-21.
 //  Copyright (c) 2014 AgileBits. All rights reserved.
 //
 
@@ -15,6 +15,8 @@
 @implementation ThankYouViewController
 
 - (void)viewDidLoad {
+	[super viewDidLoad];
+
 	[self.view setBackgroundColor:[[UIColor alloc] initWithPatternImage:[UIImage imageNamed:@"login-background.png"]]];
 }
 

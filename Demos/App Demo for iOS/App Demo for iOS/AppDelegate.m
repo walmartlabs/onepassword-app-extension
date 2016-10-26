@@ -1,17 +1,15 @@
 //
 //  AppDelegate.m
-//  1Password Extension Demo
+//  App Demo for iOS
 //
-//  Created by Rad Azzouz on 2014-07-14.
+//  Created by Rad Azzouz Azzouz on 2014-07-14.
 //  Copyright (c) 2014 AgileBits. All rights reserved.
 //
 
 #import "AppDelegate.h"
 #import "OnePasswordExtension.h"
 
-#import <MessageUI/MFMailComposeViewController.h>
-
-@interface AppDelegate () <UIAlertViewDelegate, MFMailComposeViewControllerDelegate>
+@interface AppDelegate ()
 
 @end
 
@@ -19,11 +17,7 @@
             
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-	if (![[OnePasswordExtension sharedExtension] isAppExtensionAvailable]) {
-		UIAlertView * alertView = [[UIAlertView alloc] initWithTitle:@"1Password Beta is not installed" message:@"Email support+appex@agilebits.com for beta access" delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:@"Email", nil];
-		[alertView show];
-	}
-
+	// Override point for customization after application launch.
 	return YES;
 }
 
@@ -47,27 +41,6 @@
 
 - (void)applicationWillTerminate:(UIApplication *)application {
 	// Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
-}
-
-#pragma mark - UIAlertViewDelegate
-
-- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex {
-	if (buttonIndex == alertView.firstOtherButtonIndex) {
-		MFMailComposeViewController* composeViewController = [[MFMailComposeViewController alloc] init];
-		composeViewController.mailComposeDelegate = self;
-		[composeViewController setToRecipients:@[ @"support+appex@agilebits.com" ]];
-		[composeViewController setSubject:@"App Extension"];
-
-		UIWindow *window = [UIApplication sharedApplication].windows.firstObject;
-		UIViewController *rootViewController = window.rootViewController;
-		[rootViewController presentViewController:composeViewController animated:YES completion:nil];
-	}
-}
-
-#pragma mark - MFMailComposeViewControllerDelegate
-
-- (void)mailComposeController:(MFMailComposeViewController*)controller didFinishWithResult:(MFMailComposeResult)result error:(NSError*)error {
-	[controller dismissViewControllerAnimated:YES completion:nil];
 }
 
 @end

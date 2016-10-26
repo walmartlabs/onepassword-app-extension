@@ -1,8 +1,8 @@
 //
 //  AppDelegate.h
-//  WebView filling for iOS
+//  WebView Demo for iOS
 //
-//  Created by Rad on 2014-07-21.
+//  Created by Rad Azzouz on 2014-07-21.
 //  Copyright (c) 2014 AgileBits. All rights reserved.
 //
 
@@ -11,7 +11,6 @@
 @interface AppDelegate : UIResponder <UIApplicationDelegate>
 
 @property (strong, nonatomic) UIWindow *window;
-
 
 @end
 
